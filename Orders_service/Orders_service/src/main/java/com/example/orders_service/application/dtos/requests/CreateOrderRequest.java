@@ -1,4 +1,4 @@
-package com.example.orders_service.domain.models.dto.requests;
+package com.example.orders_service.application.dtos.requests;
 
 import lombok.Data;
 

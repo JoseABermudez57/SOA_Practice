@@ -1,8 +1,10 @@
 package com.example.orders_service.domain.models;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class OrderProduct {
     private String uuid;
     private Long price;

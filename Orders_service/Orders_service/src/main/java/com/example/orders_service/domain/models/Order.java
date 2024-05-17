@@ -1,12 +1,13 @@
 package com.example.orders_service.domain.models;
 
 import com.example.orders_service.domain.models.enums.Status;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
 
-@Data
+@Getter @Setter
 public class Order {
     private String uuid;
     private Long total;

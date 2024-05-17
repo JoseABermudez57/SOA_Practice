@@ -4,9 +4,9 @@ import com.example.orders_service.application.mapper.IOrderDtoMapper;
 import com.example.orders_service.application.mapper.IOrderProductDtoMapper;
 import com.example.orders_service.domain.models.Order;
 import com.example.orders_service.domain.models.OrderProduct;
-import com.example.orders_service.domain.models.dto.requests.CreateOrderRequest;
-import com.example.orders_service.domain.models.dto.response.BaseResponse;
-import com.example.orders_service.domain.models.dto.response.OrderResponse;
+import com.example.orders_service.application.dtos.requests.CreateOrderRequest;
+import com.example.orders_service.application.dtos.response.BaseResponse;
+import com.example.orders_service.application.dtos.response.OrderResponse;
 import com.example.orders_service.domain.port.IOrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,16 +14,17 @@ import java.util.List;
 
 @Service
 public class CreateOrderUseCase {
+
     private final IOrderRepository orderRepository;
 
     private final IOrderDtoMapper orderDtoMapper;
 
     private final IOrderProductDtoMapper orderProductDtoMapper;
 
-    public CreateOrderUseCase(IOrderProductDtoMapper orderProductDtoMapper, IOrderDtoMapper orderDtoMapper, IOrderRepository orderRepository) {
+    public CreateOrderUseCase(IOrderRepository orderRepository, IOrderProductDtoMapper orderProductDtoMapper, IOrderDtoMapper orderDtoMapper) {
+        this.orderRepository = orderRepository;
         this.orderProductDtoMapper = orderProductDtoMapper;
         this.orderDtoMapper = orderDtoMapper;
-        this.orderRepository = orderRepository;
     }
 
     public BaseResponse excuse(CreateOrderRequest request) {
@@ -48,4 +49,5 @@ public class CreateOrderUseCase {
                 .mapToLong(product -> product.getPrice() * product.getQuantity())
                 .sum();
     }
+
 }

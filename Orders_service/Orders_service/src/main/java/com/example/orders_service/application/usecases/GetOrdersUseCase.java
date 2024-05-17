@@ -2,23 +2,22 @@ package com.example.orders_service.application.usecases;
 
 import com.example.orders_service.application.mapper.IOrderDtoMapper;
 import com.example.orders_service.domain.models.Order;
-import com.example.orders_service.domain.models.dto.response.BaseResponse;
-import com.example.orders_service.domain.models.dto.response.OrderResponse;
+import com.example.orders_service.application.dtos.response.BaseResponse;
+import com.example.orders_service.application.dtos.response.OrderResponse;
 import com.example.orders_service.domain.port.IOrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class GetOrderUseCase {
+public class GetOrdersUseCase {
 
     private final IOrderRepository orderRepository;
 
     private final IOrderDtoMapper orderDtoMapper;
 
-    public GetOrderUseCase(IOrderRepository orderRepository, IOrderDtoMapper orderDtoMapper) {
+    public GetOrdersUseCase(IOrderRepository orderRepository, IOrderDtoMapper orderDtoMapper) {
         this.orderRepository = orderRepository;
         this.orderDtoMapper = orderDtoMapper;
     }

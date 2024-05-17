@@ -4,4 +4,5 @@ import com.example.orders_service.domain.models.OrderProduct;
 
 public interface IOrderProductRepository {
     OrderProduct save(OrderProduct orderProduct);
+
 }
